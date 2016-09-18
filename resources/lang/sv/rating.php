@@ -1,0 +1,4 @@
+<?php
+return [
+  'self' => 'betyg'
+];

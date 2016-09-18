@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\PointOfInterestController;
 use Illuminate\Http\Request;
 
 /*
@@ -16,3 +17,9 @@ use Illuminate\Http\Request;
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
+
+Route::get('/pointofinterests', 'Api\PointOfInterestController@getPointsOfInterests')->name('poi.index');
+
+
+
+Route::get('/routes', 'Api\RouteController@getRoutes')->name('route.index');

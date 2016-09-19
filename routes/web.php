@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('/point/{pointofinterest}', 'PointOfInterestController@show')->name('pointofinterest.show');
+
 Route::get('/', 'HomeController@index');
 
 Auth::routes();

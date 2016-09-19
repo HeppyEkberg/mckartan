@@ -13,15 +13,12 @@ class PointOfInterestTableSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::first();
-
-        $points = [
-            ['latitud' => 57.7081, 'longitud' => 11.9761, 'pointOfInterestType_id' => 1, 'createdBy_id' => $user->id],
-            ['latitud' => 57.6996, 'longitud' => 11.9676, 'pointOfInterestType_id' => 1, 'createdBy_id' => $user->id],
-            ['latitud' => 57.6975, 'longitud' => 11.9916, 'pointOfInterestType_id' => 1, 'createdBy_id' => $user->id],
-            ['latitud' => 57.6920, 'longitud' => 11.9938, 'pointOfInterestType_id' => 1, 'createdBy_id' => $user->id],
-            ['latitud' => 57.6985, 'longitud' => 11.9867, 'pointOfInterestType_id' => 1, 'createdBy_id' => $user->id],
-        ];
+        $pointOfInterests = file_get_contents(database_path('seed_data/pointofinterests.json'));
+        $pointOfInterests = json_decode($pointOfInterests);
+        $points = [];
+        foreach($pointOfInterests->rows as $row) {
+            $points[] = (array) $row;
+        }
 
         PointOfInterest::insert($points);
 

@@ -5,62 +5,7 @@
 @endsection
 
 @section('content')
-    <div id="map"></div>
-    <script>
-        var map;
-        function initMap() {
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: 57.708870, lng: 11.974560},
-                zoom: 7
-            });
-
-            var myLatLng = {lat: 57.708138, lng: 11.976159};
-
-            var marker = new google.maps.Marker({
-                position: myLatLng,
-                map: map,
-                icon: 'gfx/icons/parking.png',
-                title: 'Hello World!'
-            });
-
-            var marker2 = new google.maps.Marker({
-                position: {lat: 57.699646, lng: 11.967645},
-                map: map,
-                icon: 'gfx/icons/parking.png',
-                title: 'Hello World!'
-            });
-
-            var marker3 = new google.maps.Marker({
-                position: {lat: 57.697589, lng: 11.991652},
-                map: map,
-                icon: 'gfx/icons/parking.png',
-                title: 'Hello World!'
-            });
-
-            var marker4 = new google.maps.Marker({
-                position: {lat: 57.692073, lng: 11.993862},
-                map: map,
-                icon: 'gfx/icons/parking.png',
-                title: 'Hello World!'
-            });
-
-            var marker5 = new google.maps.Marker({
-                position: {lat: 57.698563, lng: 11.986778},
-                map: map,
-                icon: 'gfx/icons/parking.png',
-                title: 'Hello World!'
-            });
-
-            marker.setMap(map);
-            marker2.setMap(map);
-            marker3.setMap(map);
-            marker4.setMap(map);
-            marker5.setMap(map);
-        }
-
-    </script>
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBV0eWKb8qsMyn5bg6sajOhkl3Mmns8KoU&callback=initMap" async defer></script>
+    @include('map/pointofinterests')
 @endsection
 
 @section('sidebar')

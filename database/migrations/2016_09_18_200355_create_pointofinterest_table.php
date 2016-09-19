@@ -18,8 +18,11 @@ class CreatePointofinterestTable extends Migration
             $table->string('name')->nullable();
             $table->float('latitud', 8, 4);
             $table->float('longitud', 8, 4);
-            $table->integer('createdBy_id');
+            $table->string('description', 500)->nullable();
+            $table->string('website', 100)->nullable();
+            $table->string('image', 255)->nullable();
             $table->integer('pointOfInterestType_id');
+            $table->integer('createdBy_id');
             $table->timestamps();
         });
     }

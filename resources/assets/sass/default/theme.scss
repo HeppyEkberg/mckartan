@@ -1,0 +1,67 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size:14px;
+}
+
+.page-container {
+  height: 100%;
+}
+
+#main-wrapper {
+  height: 100%;
+  padding-top: 50px;
+}
+
+#main-content {
+  height: 100%;
+}
+
+#map {
+  height: 100%;
+}
+
+.navbar {
+  position: absolute;
+  width: 100%;
+  top: 0px;
+}
+
+.full-row {
+  height: 100%;
+}
+
+.full-row > div {
+  height: 100%;
+}
+
+.my-routes li {
+  margin-bottom: 10px;
+  padding-left: 10px;
+}
+
+.header {
+  margin-top: 0px;
+  padding: 10px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background: rgb(237, 28, 36);
+  font-weight:bold;
+  margin-bottom: 0px;
+  color: black;
+}
+
+.container {
+  width: 100%;
+}
+
+#main-content {
+  min-height: 100%;
+}
+
+
+@import "sidebar";
+@import "routes";
+@import "comment";
+@import "login";

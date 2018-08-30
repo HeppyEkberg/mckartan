@@ -5,28 +5,38 @@
 @endsection
 
 @section('content')
-    @include('map/pointofinterests')
+
+    @include('map.fullsize')
+
 @endsection
 
+@if(isset($routes))
 @section('sidebar')
     <div>
         <h3 class="header">{{trans('routes.my_routes')}}</h3>
         <ul class="list-unstyled my-routes">
-            @foreach($user->routes as $route)
+            @forelse($routes as $route)
                 <li>
-                    <a href="">
-                        {{$route->start_address}}
-                        <br>
-                        {{$route->end_address}}
-                    </a>
+                    <a href="" class="route-name">{{$route->start_address}}</a>
+                    <br>
+                    <a href="" class="route-name">{{$route->end_address}}</a>
+                    <ul class="list-unstyled list-inline">
+                        @for($i = 0; $i < 5; $i++)
+                            <li><i class="fas fa-star"></i></li>
+                        @endfor
+                        <li>3.5/5</li>
+                    </ul>
+
+
                     <br>
                     <strong>{{trans('time.self')}}</strong> {{gmdate("i:s", $route->duration)}}
                     <br>
                     <strong>{{trans('distance.self')}}</strong> {{ number_format($route->distance / 1000, 1) }} km
-                    <br>
-                    <strong>{{trans('rating.self')}}</strong> {{ is_null($route->rating) ? '-' : $route->rating . ' / 5' }}
                 </li>
-            @endforeach
+            @empty
+                <li></li>
+            @endforelse
         </ul>
     </div>
 @endsection
+@endif

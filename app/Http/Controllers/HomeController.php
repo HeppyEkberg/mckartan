@@ -2,38 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PointOfInterest;
+use App\MapCoordinates;
 use App\Models\Route;
-use App\Models\RouteCoordinate;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
 
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $pointOfInterests = PointOfInterest::all();
+        $mapCoordinates = new MapCoordinates();
+        $routes = Route::all();
 
         if(is_null(Auth::user())) {
-            return view('welcome', compact('pointOfInterests'));
+            return view('welcome', compact('mapCoordinates'));
         }
 
         $user = Auth::user();
-        return view('home', compact('user', 'pointOfInterests'));
+        return view('home', compact('user', 'mapCoordinates', 'routes'));
     }
+
+
 }

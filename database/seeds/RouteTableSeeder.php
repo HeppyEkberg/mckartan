@@ -14,6 +14,35 @@ class RouteTableSeeder extends Seeder
      */
     public function run()
     {
+//        $this->old();
+        $this->new();
+    }
+
+    private function new() {
+        $routes = file_get_contents(database_path('seed_data/routes_new.json'));
+        $routes = json_decode($routes);
+        $user = \App\User::first();
+        Route::unguard();
+        RouteCoordinate::unguard();
+
+        foreach($routes as $route_data) {
+            $route_data = (array) $route_data;
+            $route = Route::insert(array_except($route_data, ['coordinates']));
+
+            $coordinates = [];
+            foreach($route_data['coordinates'] as $coordinate_data) {
+                $coordinates[] = (array) $coordinate_data;
+            }
+
+            RouteCoordinate::insert($coordinates);
+        }
+
+
+        Route::unguard(false);
+        RouteCoordinate::unguard(false);
+    }
+
+    private function old() {
         $routes = file_get_contents(database_path('seed_data/sections.json'));
         $routes = json_decode($routes);
         $user = \App\User::first();
@@ -34,14 +63,13 @@ class RouteTableSeeder extends Seeder
             foreach($route_data->geometry->coordinates as $coordinates) {
                 $coordinatesList[] = [
                     'route_id' => $route->id,
-                    'longitud' => $coordinates[0],
-                    'latitud' => $coordinates[1]
+                    'longitude' => $coordinates[0],
+                    'latitude' => $coordinates[1]
                 ];
             }
 
             RouteCoordinate::insert($coordinatesList);
         }
-
 
     }
 }

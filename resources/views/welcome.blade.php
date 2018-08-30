@@ -5,5 +5,7 @@
 @endsection
 
 @section('content')
-    @include('map/pointofinterests')
+
+    @include('map.fullsize')
+
 @endsection

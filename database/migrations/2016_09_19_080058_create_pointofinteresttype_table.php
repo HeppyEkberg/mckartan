@@ -16,6 +16,7 @@ class CreatePointofinteresttypeTable extends Migration
         Schema::create('pointOfInterestType', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('icon', 255)->nullable();
         });
     }
 

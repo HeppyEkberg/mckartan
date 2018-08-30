@@ -1,0 +1,84 @@
+
+.sidebar {
+  width: 375px;
+  position: fixed;
+  top: 100px;
+  bottom: 30px;
+  left: 10px;
+  z-index: 5000;
+  background: white;
+  max-height: 100%;
+  overflow: auto;
+
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+
+  border: 1px solid #d3d3d3;
+
+  hr {
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+
+  .sidebar-image {
+    max-width: 100%;
+  }
+
+  .sidebar-content {
+    height: 100%;
+  }
+
+  .sidebar-title {
+    margin-bottom: 0px;
+
+    h4 img {
+      margin-bottom:-10px;
+    }
+  }
+
+  .rating {
+    position: absolute;
+    left: 55px;
+    top: 35px;
+
+    .star {
+      padding-left: 1px;
+      padding-right: 1px;
+
+      &.filled {
+
+        .fa-star {
+          color: gold;
+        }
+
+        .fa-star-half {
+          color: gold;
+        }
+      }
+    }
+
+    .full {
+      color: yellow;
+    }
+  }
+
+}
+
+.my-routes {
+
+  > li {
+    border-top: 1px solid grey;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+
+  .route-name {
+    color: black;
+    text-underline: none;
+    font-weight: bold;
+  }
+
+}

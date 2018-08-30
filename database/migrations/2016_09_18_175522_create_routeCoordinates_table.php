@@ -16,8 +16,8 @@ class CreateRouteCoordinatesTable extends Migration
         Schema::create('routeCoordinates', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('route_id');
-            $table->float('longitud', 8, 4);
-            $table->float('latitud', 8, 4);
+            $table->float('longitude', 8, 4);
+            $table->float('latitude', 8, 4);
             $table->index('route_id');
         });
     }

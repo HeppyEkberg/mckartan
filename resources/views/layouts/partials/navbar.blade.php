@@ -30,9 +30,9 @@
 
                     <ul class="dropdown-menu" role="menu">
                         <li>
-                            <a href="">Stockholm</a>
-                            <a href="">Göteborg</a>
-                            <a href="">Malmö</a>
+                            @foreach($cities as $city)
+                                <a href="{{ route('city.show', [$city]) }}">{{$city->name}}</a>
+                            @endforeach
                         </li>
                     </ul>
                 </li>
@@ -48,6 +48,8 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ route('route.create') }}">Skapa rutt</a></li>
+                            <li><a href="{{ route('point.create') }}">Skapa punkt</a></li>
                             <li>
                                 <a href="{{ url('/logout') }}"
                                    onclick="event.preventDefault();

@@ -16,13 +16,14 @@ class CreatePointofinterestTable extends Migration
         Schema::create('pointOfInterest', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->nullable();
-            $table->float('latitud', 8, 4);
-            $table->float('longitud', 8, 4);
+            $table->float('latitude', 8, 4);
+            $table->float('longitude', 8, 4);
             $table->string('description', 500)->nullable();
             $table->string('website', 100)->nullable();
             $table->string('image', 255)->nullable();
             $table->integer('pointOfInterestType_id');
-            $table->integer('createdBy_id');
+            $table->boolean('rating')->nullable()->default(null);
+            $table->integer('user_id');
             $table->timestamps();
         });
     }
